@@ -63,6 +63,12 @@ public class Move : MonoBehaviour
     public GameObject bullet;
     public GameObject bullet2;
     public GameObject bullet3;
+    public GameObject bullet4;
+
+    public GameObject bullet5;
+    public GameObject bullet6;
+    public GameObject bullet7;
+    public GameObject bullet8;
     public MeshCollider obj;
 
     public float cooltime, timer, cooltime2, timer2 ,cooltime3, timer3;
@@ -72,14 +78,19 @@ public class Move : MonoBehaviour
     public Season SeasonSkil;
     // Start is called before the first frame update
 
-    public ReBullet[] ShotBullet = new ReBullet[3];
+    public ReBullet[] ShotBullet = new ReBullet[8];
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
+        ShotBullet[0] = new ReBullet(transform, obj, bullet, 1, KeyCode.Mouse0);
+        ShotBullet[1] = new ReBullet(transform, obj, bullet2, 4, KeyCode.Q);
+        ShotBullet[2] = new ReBullet(transform, obj, bullet3, 7, KeyCode.E);
+        ShotBullet[3] = new ReBullet(transform, obj, bullet4, 12, KeyCode.R);
 
-        ShotBullet[0] = new ReBullet(transform, obj, bullet, 3, KeyCode.Q);
-        ShotBullet[1] = new ReBullet(transform, obj, bullet2, 5, KeyCode.E);
-        ShotBullet[2] = new ReBullet(transform, obj, bullet3, 1, KeyCode.R);
+        ShotBullet[4] = new ReBullet(transform, obj, bullet5, 1, KeyCode.Mouse0);
+        ShotBullet[5] = new ReBullet(transform, obj, bullet6, 4, KeyCode.Q);
+        ShotBullet[6] = new ReBullet(transform, obj, bullet7, 7, KeyCode.E);
+        ShotBullet[7] = new ReBullet(transform, obj, bullet8, 12, KeyCode.R);
     }
 
     // Update is called once per frame
@@ -89,6 +100,7 @@ public class Move : MonoBehaviour
         move();
         Jump();
         Shot();
+        Swap();
     }
     void GetInput()
     {
@@ -132,6 +144,27 @@ public class Move : MonoBehaviour
         if (collision.gameObject.tag == "Door")
         {
             SceneManager.LoadScene("Whynot");
+        }
+    }
+    void Swap()
+    {
+        if (SeasonSkil == Season.spring)
+        {
+            if (Input.GetKeyDown(KeyCode.Tab))
+                SeasonSkil = Season.summur;
+        }
+        else if(SeasonSkil == Season.summur)
+        {
+            if (Input.GetKeyDown(KeyCode.Tab))
+                SeasonSkil = Season.autunm;
+        }
+        else if(SeasonSkil == Season.autunm)
+        {
+
+        }
+        else if(SeasonSkil == Season.winter)
+        {
+
         }
     }
 }

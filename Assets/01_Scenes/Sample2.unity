@@ -2006,6 +2006,11 @@ MonoBehaviour:
   bullet: {fileID: 1066843573042574, guid: c98ce42aa8b5fb64fa955a3b0924a0e6, type: 3}
   bullet2: {fileID: 1449260960837898, guid: ea471fb16b008d44886490483edd9cee, type: 3}
   bullet3: {fileID: 0}
+  bullet4: {fileID: 0}
+  bullet5: {fileID: 1698648575761504, guid: cf263124cbe15f448b6a2ec0ef11bd54, type: 3}
+  bullet6: {fileID: 0}
+  bullet7: {fileID: 0}
+  bullet8: {fileID: 0}
   obj: {fileID: 1924513524}
   cooltime: 3
   timer: 0
@@ -2013,6 +2018,7 @@ MonoBehaviour:
   timer2: 0
   cooltime3: 0
   timer3: 0
+  SeasonSkil: 0
   ShotBullet:
   - timer: 0
     cooltime: 0
