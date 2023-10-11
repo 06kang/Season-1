@@ -2640,6 +2640,7 @@ MonoBehaviour:
   image: {fileID: 0}
   speed: 10
   jumpPower: 10
+  hands: {fileID: 161075910}
   bullet: {fileID: 1066843573042574, guid: c98ce42aa8b5fb64fa955a3b0924a0e6, type: 3}
   bullet2: {fileID: 1449260960837898, guid: ea471fb16b008d44886490483edd9cee, type: 3}
   bullet3: {fileID: 1018882707796302, guid: f013a7465c9b4274bbd66d2ff9761187, type: 3}
