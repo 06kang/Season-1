@@ -69,28 +69,31 @@ public class Move : MonoBehaviour
     public GameObject bullet6;
     public GameObject bullet7;
     public GameObject bullet8;
+
+    public GameObject bullet9;
+    public GameObject bullet10;
+    public GameObject bullet11;
+    public GameObject bullet12;
+
+    public GameObject bullet13;
+    public GameObject bullet14;
+    public GameObject bullet15;
+    public GameObject bullet16;
+
     public MeshCollider obj;
 
     public float cooltime, timer, cooltime2, timer2 ,cooltime3, timer3;
     
 
     public enum Season { spring, summur, autunm, winter };
-    public Season SeasonSkil;
+    public Season SeasonSkil = Season.spring;
     // Start is called before the first frame update
 
-    public ReBullet[] ShotBullet = new ReBullet[8];
+    public ReBullet[] ShotBullet = new ReBullet[4];
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
-        ShotBullet[0] = new ReBullet(transform, obj, bullet, 1, KeyCode.Mouse0);
-        ShotBullet[1] = new ReBullet(transform, obj, bullet2, 4, KeyCode.Q);
-        ShotBullet[2] = new ReBullet(transform, obj, bullet3, 7, KeyCode.E);
-        ShotBullet[3] = new ReBullet(transform, obj, bullet4, 12, KeyCode.R);
-
-        ShotBullet[4] = new ReBullet(transform, obj, bullet5, 1, KeyCode.Mouse0);
-        ShotBullet[5] = new ReBullet(transform, obj, bullet6, 4, KeyCode.Q);
-        ShotBullet[6] = new ReBullet(transform, obj, bullet7, 7, KeyCode.E);
-        ShotBullet[7] = new ReBullet(transform, obj, bullet8, 12, KeyCode.R);
+        ChangeSeason(SeasonSkil);
     }
 
     // Update is called once per frame
@@ -100,8 +103,38 @@ public class Move : MonoBehaviour
         move();
         Jump();
         Shot();
-        Swap();
+        //Swap();
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            print(SeasonSkil);
+            if (SeasonSkil == Season.spring)
+            {
+                SeasonSkil = Season.summur;
+                ChangeSeason(SeasonSkil);
+            }
+            else if (SeasonSkil == Season.summur)
+            {
+                SeasonSkil = Season.autunm;
+                ChangeSeason(SeasonSkil);
+            }
+            else if (SeasonSkil == Season.autunm)
+            {
+                SeasonSkil = Season.winter;
+                ChangeSeason(SeasonSkil);
+            }
+            else if (SeasonSkil == Season.winter)
+            {
+                SeasonSkil = Season.spring;
+                ChangeSeason(SeasonSkil);
+            }
+        }
     }
+        
+            
+        
+    
+
     void GetInput()
     {
         hAxis = Input.GetAxisRaw("Horizontal");
@@ -146,7 +179,39 @@ public class Move : MonoBehaviour
             SceneManager.LoadScene("Whynot");
         }
     }
-    void Swap()
+
+    public void ChangeSeason(Season season)
+    {
+        switch (season)
+        {
+            case Season.spring:
+                ShotBullet[0] = new ReBullet(transform, obj, bullet, 1, KeyCode.Mouse0);
+                ShotBullet[1] = new ReBullet(transform, obj, bullet2, 4, KeyCode.Q);
+                ShotBullet[2] = new ReBullet(transform, obj, bullet3, 7, KeyCode.E);
+                ShotBullet[3] = new ReBullet(transform, obj, bullet4, 12, KeyCode.R);
+                break;
+            case Season.summur:
+                ShotBullet[0] = new ReBullet(transform, obj, bullet5, 1, KeyCode.Mouse0);
+                ShotBullet[1] = new ReBullet(transform, obj, bullet6, 4, KeyCode.Q);
+                ShotBullet[2] = new ReBullet(transform, obj, bullet7, 7, KeyCode.E);
+                ShotBullet[3] = new ReBullet(transform, obj, bullet8, 12, KeyCode.R);
+                break;
+            case Season.autunm:
+                ShotBullet[0] = new ReBullet(transform, obj, bullet9, 1, KeyCode.Mouse0);
+                ShotBullet[1] = new ReBullet(transform, obj, bullet10, 4, KeyCode.Q);
+                ShotBullet[2] = new ReBullet(transform, obj, bullet11, 7, KeyCode.E);
+                ShotBullet[3] = new ReBullet(transform, obj, bullet12, 12, KeyCode.R);
+                break;
+            case Season.winter:
+                ShotBullet[0] = new ReBullet(transform, obj, bullet13, 1, KeyCode.Mouse0);
+                ShotBullet[1] = new ReBullet(transform, obj, bullet14, 4, KeyCode.Q);
+                ShotBullet[2] = new ReBullet(transform, obj, bullet15, 7, KeyCode.E);
+                ShotBullet[3] = new ReBullet(transform, obj, bullet16, 12, KeyCode.R);
+                break;
+        }
+    }
+
+    /*void Swap()
     {
         if (SeasonSkil == Season.spring)
         {
@@ -166,5 +231,5 @@ public class Move : MonoBehaviour
         {
 
         }
-    }
+    }*/
 }
