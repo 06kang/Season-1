@@ -14,6 +14,7 @@ public class Move : MonoBehaviour
     bool jDown;
     bool isJump;
     public float jumpPower;
+    public Transform hands;
 
     Rigidbody rigid;
 
@@ -104,6 +105,8 @@ public class Move : MonoBehaviour
         Jump();
         Shot();
         //Swap();
+
+        //hands.transform.rotation = new Quaternion(10f, 20f, 30f, 1f);
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
