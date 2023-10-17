@@ -14,7 +14,12 @@ public class NPC : MonoBehaviour
     }
     public Array[] Contents;
     public int count;
+    public int count2;
+    public int ck;
 
+    public GameObject obj;
+
+    public Vector3 vector;
     void Start()
     {
         
@@ -44,6 +49,7 @@ public class NPC : MonoBehaviour
             {
                 GameManager.instance.textBox.OnTextBox(Contents[count].texts);
                 count++;
+                count2++;
             }
         }
         else
@@ -51,5 +57,16 @@ public class NPC : MonoBehaviour
             btn.SetActive(false);
         }
 
+        Telpo(vector);
+        
     }
+
+    void Telpo(Vector3 pos)
+    {
+        if (count2 == ck)
+        {
+            obj.transform.position = pos;
+        }
+    }
+    
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class Move : MonoBehaviour
 {
@@ -17,6 +18,31 @@ public class Move : MonoBehaviour
     public Transform hands;
 
     Rigidbody rigid;
+
+    public GameObject bullet;
+    public GameObject bullet2;
+    public GameObject bullet3;
+    public GameObject bullet4;
+
+    public GameObject bullet5;
+    public GameObject bullet6;
+    public GameObject bullet7;
+    public GameObject bullet8;
+
+    public GameObject bullet9;
+    public GameObject bullet10;
+    public GameObject bullet11;
+    public GameObject bullet12;
+
+    public GameObject bullet13;
+    public GameObject bullet14;
+    public GameObject bullet15;
+    public GameObject bullet16;
+
+
+    public MeshCollider obj;
+
+    public float cooltime, timer, cooltime2, timer2, cooltime3, timer3;
 
     [Serializable]
     public class ReBullet
@@ -60,31 +86,6 @@ public class Move : MonoBehaviour
             this.key = key;
         }
     }
-
-    public GameObject bullet;
-    public GameObject bullet2;
-    public GameObject bullet3;
-    public GameObject bullet4;
-
-    public GameObject bullet5;
-    public GameObject bullet6;
-    public GameObject bullet7;
-    public GameObject bullet8;
-
-    public GameObject bullet9;
-    public GameObject bullet10;
-    public GameObject bullet11;
-    public GameObject bullet12;
-
-    public GameObject bullet13;
-    public GameObject bullet14;
-    public GameObject bullet15;
-    public GameObject bullet16;
-
-    public MeshCollider obj;
-
-    public float cooltime, timer, cooltime2, timer2 ,cooltime3, timer3;
-    
 
     public enum Season { spring, summur, autunm, winter };
     public Season SeasonSkil = Season.spring;
@@ -235,4 +236,5 @@ public class Move : MonoBehaviour
 
         }
     }*/
+    
 }

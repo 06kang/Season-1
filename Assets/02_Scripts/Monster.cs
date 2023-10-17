@@ -30,4 +30,15 @@ public class Monster : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Melee")
+        {
+            Weapon weapon = other.GetComponent<Weapon>();
+            curHp -= weapon.damage;
+            Vector3 reactVec = transform.position - other.transform.position;
+            
+            
+        }
+    }
 }
