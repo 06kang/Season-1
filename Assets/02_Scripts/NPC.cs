@@ -66,6 +66,8 @@ public class NPC : MonoBehaviour
         if (count2 == ck)
         {
             obj.transform.position = pos;
+            count2 = 0;
+            GameObject.Find("Fade").GetComponent<FadeOutAnim>().FadeIn();
         }
     }
     
