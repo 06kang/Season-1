@@ -16,15 +16,6 @@ public class GameManager : MonoBehaviour
     public Image[] skilCool;
     public Text[] cooltimeTxt;
 
-    public FadeOutAnim firstFade;
-
-    public float fadeSpeed = 1.5f;
-    public bool fadeInOnStart = false;
-    public bool fadeOutOnExit = false;
-    public bool isFade;
-    private CanvasGroup canvasGroup;
-    public enum FadeKind { FadeIn, FadeOut };
-    public FadeKind fade;
     void Start()
     {
         instance = this;

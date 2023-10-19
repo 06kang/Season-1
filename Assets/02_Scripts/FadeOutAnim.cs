@@ -9,8 +9,10 @@ public class FadeOutAnim : MonoBehaviour
     public bool fadeOutOnExit = false;
     public bool isFade;
     public CanvasGroup canvasGroup;
-    public enum FadeKind { FadeIn, FadeOut };
-    public FadeKind fade;
+
+    public bool isFadeOn;
+    /*public enum FadeKind { FadeIn, FadeOut };
+    public FadeKind fade;*/
 
     private void Start()
     {
@@ -26,29 +28,36 @@ public class FadeOutAnim : MonoBehaviour
         //}
         //isFade = false;
         //gameObject.SetActive(true);
-
-        for(int i=1; i<=100; i++)
+        if(canvasGroup.alpha <= 1f)
         {
-            canvasGroup.alpha = i * 0.01f;
-            yield return new WaitForSeconds(0.01f);
+            for (int i = 1; i <= 100; i++)
+            {
+                canvasGroup.alpha = i * 0.01f;
+                yield return new WaitForSeconds(0.01f);
+            }
+            isFade = false;
+            gameObject.SetActive(true);
         }
-        isFade = false;
-        gameObject.SetActive(true);
     }
 
     public IEnumerator FadeOut()
     {
-        for (int i = 100; i >= 0; i--)
+        if(canvasGroup.alpha >= 1f)
         {
-            canvasGroup.alpha = i * 0.01f;
-            yield return new WaitForSeconds(0.01f);
+            for (int i = 100; i >= 0; i--)
+            {
+                canvasGroup.alpha = i * 0.01f;
+                yield return new WaitForSeconds(0.01f);
+            }
+            isFade = true;
+            gameObject.SetActive(false);
+
+        
         }
-        isFade = true;
-        gameObject.SetActive(false);
     }
 
 
-    public void ActiveFade()
+    /*public void ActiveFade()
     {
         canvasGroup = GetComponent<CanvasGroup>();
         if (fade == FadeKind.FadeIn)
@@ -66,6 +75,6 @@ public class FadeOutAnim : MonoBehaviour
 
         }
         isFade = true;
-    }
+    }*/
 
 }

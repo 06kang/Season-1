@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class NPC : MonoBehaviour
@@ -20,9 +21,16 @@ public class NPC : MonoBehaviour
     public GameObject obj;
 
     public Vector3 vector;
+
+    public enum Umjunsik { FadeGo, Notfade};
+    public Umjunsik mjunsik;
+
+    public enum TelpoMan { TelpoGo, NotTelpo };
+    public TelpoMan man;
+
+    
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -56,9 +64,10 @@ public class NPC : MonoBehaviour
         {
             btn.SetActive(false);
         }
-
-        Telpo(vector);
-        
+        if(man == TelpoMan.TelpoGo)
+        {
+            Telpo(vector);
+        }
     }
 
     void Telpo(Vector3 pos)
@@ -67,7 +76,14 @@ public class NPC : MonoBehaviour
         {
             obj.transform.position = pos;
             count2 = 0;
-            GameObject.Find("Fade").GetComponent<FadeOutAnim>().FadeIn();
+            if(mjunsik == Umjunsik.FadeGo)
+            {
+                GameObject.Find("Fade").GetComponent<FadeOutAnim>().StartCoroutine("FadeIn");
+            }
+            if(isFadeOn == false)
+            {
+                GameObject.Find("Fade").GetComponent<FadeOutAnim>().StartCoroutine("FadeOut");
+            }
         }
     }
     
