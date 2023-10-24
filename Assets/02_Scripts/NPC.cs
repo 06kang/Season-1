@@ -22,12 +22,10 @@ public class NPC : MonoBehaviour
 
     public Vector3 vector;
 
-    public enum Umjunsik { FadeGo, Notfade};
-    public Umjunsik mjunsik;
-
+    public bool fade = true;
     public enum TelpoMan { TelpoGo, NotTelpo };
     public TelpoMan man;
-
+    
     
     void Start()
     {
@@ -72,17 +70,14 @@ public class NPC : MonoBehaviour
 
     void Telpo(Vector3 pos)
     {
+        
         if (count2 == ck)
         {
             obj.transform.position = pos;
             count2 = 0;
-            if(mjunsik == Umjunsik.FadeGo)
+            if(fade == true)
             {
-                GameObject.Find("Fade").GetComponent<FadeOutAnim>().StartCoroutine("FadeIn");
-            }
-            if(isFadeOn == false)
-            {
-                GameObject.Find("Fade").GetComponent<FadeOutAnim>().StartCoroutine("FadeOut");
+                GameObject.Find("Fade").GetComponent<FadeOutAnim>().StartCoroutine("FadeInOut");
             }
         }
     }

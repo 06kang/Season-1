@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 public class FadeOutAnim : MonoBehaviour
 {
 
@@ -10,7 +11,6 @@ public class FadeOutAnim : MonoBehaviour
     public bool isFade;
     public CanvasGroup canvasGroup;
 
-    public bool isFadeOn;
     /*public enum FadeKind { FadeIn, FadeOut };
     public FadeKind fade;*/
 
@@ -18,63 +18,45 @@ public class FadeOutAnim : MonoBehaviour
     {
         canvasGroup = GetComponent<CanvasGroup>();
     }
+    void Update()
+    {
+    }
 
     public IEnumerator FadeIn()
     {
-        //while (canvasGroup.alpha < 1)
-        //{
-        //    canvasGroup.alpha += Time.deltaTime * fadeSpeed;
-        //    yield return null;
-        //}
-        //isFade = false;
-        //gameObject.SetActive(true);
-        if(canvasGroup.alpha <= 1f)
+        while (canvasGroup.alpha <= 1)
         {
-            for (int i = 1; i <= 100; i++)
-            {
-                canvasGroup.alpha = i * 0.01f;
-                yield return new WaitForSeconds(0.01f);
-            }
-            isFade = false;
-            gameObject.SetActive(true);
+            canvasGroup.alpha += Time.deltaTime * fadeSpeed;
+            yield return null;
         }
+        isFade = false;
+        gameObject.SetActive(true);
     }
 
     public IEnumerator FadeOut()
     {
-        if(canvasGroup.alpha >= 1f)
+        while(canvasGroup.alpha >= 1)
         {
-            for (int i = 100; i >= 0; i--)
-            {
-                canvasGroup.alpha = i * 0.01f;
-                yield return new WaitForSeconds(0.01f);
-            }
-            isFade = true;
-            gameObject.SetActive(false);
-
-        
-        }
-    }
-
-
-    /*public void ActiveFade()
-    {
-        canvasGroup = GetComponent<CanvasGroup>();
-        if (fade == FadeKind.FadeIn)
-        {
-            gameObject.SetActive(true);
-            canvasGroup.alpha = 0f;
-            StartCoroutine(FadeIn());
-
-        }
-        else
-        {
-            enabled = true;
-            canvasGroup.alpha = 1f;
-            StartCoroutine(FadeOut());
-
+            canvasGroup.alpha -= Time.deltaTime * fadeSpeed;
+            yield return null;
         }
         isFade = true;
-    }*/
-
+        gameObject.SetActive(false);
+    }
+    public IEnumerator FadeInOut()
+    {
+        while (canvasGroup.alpha <= 1)
+        {
+            canvasGroup.alpha += Time.deltaTime * fadeSpeed;
+            yield return null;        
+        }
+        
+        isFade = false;
+        while (canvasGroup.alpha >= 1)
+        {
+            canvasGroup.alpha -= Time.deltaTime * fadeSpeed;
+            yield return null;
+        }
+        isFade = true;
+    }
 }
