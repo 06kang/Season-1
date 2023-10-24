@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.6526288, g: 0.34088007, b: 0.6052966, a: 1}
+  m_IndirectSpecularColor: {r: 0.31364727, g: 0.29447109, b: 0.51451075, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -462,7 +462,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -699,7 +698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4291032260640870, guid: c98ce42aa8b5fb64fa955a3b0924a0e6, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4291032260640870, guid: c98ce42aa8b5fb64fa955a3b0924a0e6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1339,6 +1338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddc7f14f2c0b4024ba3723ab27b52937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts: []
+  t: {fileID: 0}
   btn: {fileID: 1072541961}
   Contents:
   - texts:
@@ -1353,10 +1354,10 @@ MonoBehaviour:
   - texts:
     - "\uC5C4"
   count: 0
-  count2: 0
   ck: 0
   obj: {fileID: 94141430}
   vector: {x: 0, y: 0, z: 0}
+  pos: {x: 0, y: 0, z: 0}
   fade: 1
   man: 0
 --- !u!1001 &698610974
@@ -1368,7 +1369,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6137969863410738380, guid: 61caa8ce6718ed241a97c0668d66f607, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6137969863410738380, guid: 61caa8ce6718ed241a97c0668d66f607, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3024,7 +3025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9056236311987888293, guid: 4c8755f59e72fcb4fa5dba340616a660, type: 3}
       propertyPath: Contents.Array.data[0].texts.Array.data[0]
-      value: .
+      value: "\uD14D\uC2A4\uD2B8\uBC15\uC2A4 \uD14C\uC2A4\uD2B8"
       objectReference: {fileID: 0}
     - target: {fileID: 9056236311987888293, guid: 4c8755f59e72fcb4fa5dba340616a660, type: 3}
       propertyPath: Contents.Array.data[0].texts.Array.data[1]
@@ -3036,7 +3037,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9056236311987888293, guid: 4c8755f59e72fcb4fa5dba340616a660, type: 3}
       propertyPath: Contents.Array.data[1].texts.Array.data[0]
-      value: .
+      value: "\uD14D\uC2A4\uD2B8\uBC15\uC2A4 \uD14C\uC2A4\uD2B82"
       objectReference: {fileID: 0}
     - target: {fileID: 9056236311987888293, guid: 4c8755f59e72fcb4fa5dba340616a660, type: 3}
       propertyPath: Contents.Array.data[1].texts.Array.data[1]
@@ -3048,7 +3049,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9056236311987888293, guid: 4c8755f59e72fcb4fa5dba340616a660, type: 3}
       propertyPath: Contents.Array.data[2].texts.Array.data[0]
-      value: .
+      value: "\uD14D\uC2A4\uD2B8\uBC15\uC2A4 \uD14C\uC2A4\uD2B83"
       objectReference: {fileID: 0}
     - target: {fileID: 9056236311987888293, guid: 4c8755f59e72fcb4fa5dba340616a660, type: 3}
       propertyPath: Contents.Array.data[2].texts.Array.data[1]
@@ -3397,7 +3398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.95686275}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3659,13 +3660,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddc7f14f2c0b4024ba3723ab27b52937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts: []
+  t: {fileID: 0}
   btn: {fileID: 0}
   Contents: []
   count: 0
-  count2: 0
   ck: 0
   obj: {fileID: 0}
   vector: {x: 0, y: 0, z: 0}
+  pos: {x: 0, y: 0, z: 0}
   fade: 1
   man: 0
 --- !u!136 &1649013196
@@ -4128,7 +4131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4740636118394536, guid: 4d4866f6d30d0ca4899fb563a306c52b, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4740636118394536, guid: 4d4866f6d30d0ca4899fb563a306c52b, type: 3}
       propertyPath: m_LocalScale.x

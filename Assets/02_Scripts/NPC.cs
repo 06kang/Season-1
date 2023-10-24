@@ -14,13 +14,12 @@ public class NPC : MonoBehaviour
         public string[] texts;
     }
     public Array[] Contents;
-    public int count;
-    public int count2;
+    public int count, index;
     public int ck;
 
     public GameObject obj;
 
-    public Vector3 vector;
+    public Vector3 vector, pos;
 
     public bool fade = true;
     public enum TelpoMan { TelpoGo, NotTelpo };
@@ -51,11 +50,11 @@ public class NPC : MonoBehaviour
         if (hit.Length > 0)
         {
             btn.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.F) /*&& tests.Length > count*/)
+            if (Input.GetKeyDown(KeyCode.F) && Contents.Length > count && !GameManager.instance.textBox.isAcitve)
             {
-                GameManager.instance.textBox.OnTextBox(Contents[count].texts);
+                GameManager.instance.textBox.OnTextBox(Contents[count].texts, this);
+
                 count++;
-                count2++;
             }
         }
         else
@@ -71,15 +70,22 @@ public class NPC : MonoBehaviour
     void Telpo(Vector3 pos)
     {
         
-        if (count2 == ck)
+        if (index == ck)
         {
-            obj.transform.position = pos;
-            count2 = 0;
+            this.pos = pos;
+            Invoke("Teleport", 2.1f);
+            index = 0;
             if(fade == true)
             {
                 GameObject.Find("Fade").GetComponent<FadeOutAnim>().StartCoroutine("FadeInOut");
+
             }
         }
+    }
+
+    void Teleport()
+    {
+        obj.transform.position = pos;
     }
     
 }

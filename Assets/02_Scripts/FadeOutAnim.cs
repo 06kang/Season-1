@@ -24,7 +24,7 @@ public class FadeOutAnim : MonoBehaviour
 
     public IEnumerator FadeIn()
     {
-        while (canvasGroup.alpha <= 1)
+        while (canvasGroup.alpha < 1)
         {
             canvasGroup.alpha += Time.deltaTime * fadeSpeed;
             yield return null;
@@ -35,7 +35,7 @@ public class FadeOutAnim : MonoBehaviour
 
     public IEnumerator FadeOut()
     {
-        while(canvasGroup.alpha >= 1)
+        while(canvasGroup.alpha > 0)
         {
             canvasGroup.alpha -= Time.deltaTime * fadeSpeed;
             yield return null;
@@ -45,14 +45,14 @@ public class FadeOutAnim : MonoBehaviour
     }
     public IEnumerator FadeInOut()
     {
-        while (canvasGroup.alpha <= 1)
+        while (canvasGroup.alpha < 1)
         {
             canvasGroup.alpha += Time.deltaTime * fadeSpeed;
             yield return null;        
         }
-        
+        yield return new WaitForSeconds(1.5f);
         isFade = false;
-        while (canvasGroup.alpha >= 1)
+        while (canvasGroup.alpha > 0)
         {
             canvasGroup.alpha -= Time.deltaTime * fadeSpeed;
             yield return null;

@@ -6,16 +6,21 @@ public class TextBox : MonoBehaviour
 {
     public string[] texts;
     public Text t;
-    bool nextT = false;
+    public bool isAcitve= false;
 
-    public void OnTextBox(string[] texts)
+    public static int count2;
+    public NPC OpenNpc;
+
+    public void OnTextBox(string[] texts, NPC npc = null)
     {
+        OpenNpc = npc;
         this.texts = texts;
         gameObject.SetActive(true);
         StartCoroutine(OnCoroutine());
     }
     IEnumerator OnCoroutine()
     {
+        isAcitve = true;
         t.text = "";
         for (int i = 0; i < texts.Length; i++)
         {
@@ -27,10 +32,17 @@ public class TextBox : MonoBehaviour
             }
             t.text = textTemp;
 
-            while (!Input.anyKeyDown) yield return null;
+            while (!(Input.anyKeyDown && !Input.GetKeyDown(KeyCode.F))) yield return null;
 
         }
         gameObject.SetActive(false);
+        if(OpenNpc)
+        {
+            OpenNpc.index++;
+            OpenNpc = null;
+        }
+        isAcitve = false;
     }
 
 }
+
