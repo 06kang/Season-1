@@ -92,6 +92,7 @@ public class Move : MonoBehaviour
     // Start is called before the first frame update
 
     public ReBullet[] ShotBullet = new ReBullet[4];
+    public int HP;
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
@@ -137,7 +138,11 @@ public class Move : MonoBehaviour
         
             
         
-    
+    public void TakeDamage(int damage)
+    {
+        HP -= damage;
+        if (HP <= 0) Destroy(gameObject);
+    }
 
     void GetInput()
     {
