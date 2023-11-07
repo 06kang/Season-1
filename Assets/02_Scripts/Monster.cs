@@ -9,10 +9,13 @@ public class Monster : MonoBehaviour
     public float curHp;
     public float Damage;
     public Transform target;
-    
+
+    public Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         
     }
 
@@ -27,19 +30,9 @@ public class Monster : MonoBehaviour
         curHp -= Damage;
         if(curHp <= 0)
         {
-
-            Destroy(gameObject);
+            int value = 1;
+            anim.SetInteger("Dead", value);
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Melee")
-        {
-            Weapon weapon = other.GetComponent<Weapon>();
-            curHp -= weapon.damage;
-            Vector3 reactVec = transform.position - other.transform.position;
-            
-            
-        }
-    }
+    
 }

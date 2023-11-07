@@ -44,6 +44,8 @@ public class Move : MonoBehaviour
 
     public float cooltime, timer, cooltime2, timer2, cooltime3, timer3;
 
+    public Animator anim;
+
     [Serializable]
     public class ReBullet
     {
@@ -97,6 +99,7 @@ public class Move : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody>();
         ChangeSeason(SeasonSkil);
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -141,7 +144,11 @@ public class Move : MonoBehaviour
     public void TakeDamage(int damage)
     {
         HP -= damage;
-        if (HP <= 0) Destroy(gameObject);
+        if (HP <= 0)
+        {
+            int value = 1;
+            anim.SetInteger("Dead", value);
+        }
     }
 
     void GetInput()
