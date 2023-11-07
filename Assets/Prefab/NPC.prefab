@@ -220,6 +220,13 @@ MonoBehaviour:
   - texts:
     - "\uC5C4"
   count: 0
+  index: 0
+  ck: 0
+  obj: {fileID: 0}
+  vector: {x: 0, y: 0, z: 0}
+  pos: {x: 0, y: 0, z: 0}
+  fade: 1
+  man: 0
 --- !u!1 &9056236312303124275
 GameObject:
   m_ObjectHideFlags: 0

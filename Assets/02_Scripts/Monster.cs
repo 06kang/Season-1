@@ -27,6 +27,7 @@ public class Monster : MonoBehaviour
         curHp -= Damage;
         if(curHp <= 0)
         {
+
             Destroy(gameObject);
         }
     }
