@@ -7,7 +7,7 @@ public class Um : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Ω√¿€
     }
 
     // Update is called once per frame
